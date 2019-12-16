@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class Comments extends Component {
     goToNext = (event) => {
@@ -17,4 +19,4 @@ class Comments extends Component {
     }
 }
 
-export default Comments;
+export default connect(mapStoreToProps)(Comments);

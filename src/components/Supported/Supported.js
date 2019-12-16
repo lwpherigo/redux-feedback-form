@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class Supported extends Component {
     goToNext = (event) => {
@@ -17,4 +19,4 @@ class Supported extends Component {
     }
 }
 
-export default Supported;
+export default connect(mapStoreToProps)(Supported);

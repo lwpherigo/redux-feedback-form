@@ -14,4 +14,9 @@ router.get('/', (req,res) => {
     });
 })
 
+// router.post('/', (req,res) => {
+//     console.log('POST /feedback');
+//     pool.query('INSERT INTO "feedback" ();')
+// })
+
 module.exports = router;

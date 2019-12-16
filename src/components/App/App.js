@@ -13,10 +13,23 @@ import Comments from '../Comments/Comments';
 import Thanks from '../Thanks/Thanks';
 
 class App extends Component {
-  render() {
-    
-    
+  state = {
+    feedbackInfo: {
+      feelings: null,
+      understanding: null,
+      supported: null,
+      comments: ''
+    },
+  }
 
+  addFeedback = (event) => {
+    this.props.dispatch({
+      type: 'ADD_FEEDBACK',
+      payload: this.state.feedbackInfo
+    })
+  }
+
+  render() {
     return (
       <div className="App">
         <Router>
@@ -27,12 +40,12 @@ class App extends Component {
         </header>
         <br/>
         <div className="feedbackForm">
-          <Route exact path="/feelings" component={Feelings} />
+          <Route exact path="/feelings" component={Feelings} info={this.state.feedbackInfo} />
           <Route exact path="/admin" component={Admin} />
-          <Route exact path="/understanding" component={Understanding} />
-          <Route exact path="/supported" component={Supported} />
-          <Route exact path="/comments" component={Comments} />
-          <Route exact path="/thanks" component={Thanks} />
+          <Route exact path="/understanding" component={Understanding} info={this.state.feedbackInfo} />
+          <Route exact path="/supported" component={Supported} info={this.state.feedbackInfo} />
+          <Route exact path="/comments" component={Comments} info={this.state.feedbackInfo}/>
+          <Route exact path="/thanks" component={Thanks} info={this.state.feedbackInfo}/>
         </div>
         </Router>
       </div>
